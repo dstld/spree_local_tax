@@ -3,10 +3,10 @@ require_dependency 'spree/calculator'
 module Spree
   class Calculator::LocalTax < Calculator::DefaultTax
     def self.description
-      I18n.t(:local_tax)
+      Spree.t(:local_tax)
     end
 
-    def find_local_tax(address)
+    def self.find_local_tax(address)
       # calculate the tax rate based on order billing location
       # the rate will be calculated:
       #     1) by querying the spree_local_taxes DB for a county + state match
@@ -47,7 +47,7 @@ module Spree
     private
 
       def compute_order(order)
-        local_tax = find_local_tax(order.bill_address)
+        local_tax = Spree::Calculator::LocalTax.find_local_tax(order.bill_address)
         tax_rate = local_tax.present? ? local_tax.rate : rate.amount
 
         # TODO the only issue here is that the label text for the adjustment is not calculated
@@ -56,6 +56,5 @@ module Spree
 
         round_to_two_places(taxable_amount(order) * tax_rate)
       end
-
   end
 end

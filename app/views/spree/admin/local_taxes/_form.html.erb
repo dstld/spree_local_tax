@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="alpha seven columns">
+    <%= f.field_container :state_id do %>
+      <%= f.label :state, Spree.t(:state) %> <span class="required">*</span><br />
+      <%= f.select :state_id, options_from_collection_for_select(Spree::State.all, :id, :name, @local_tax.state_id ), :class => 'fullwidth' %>
+    <% end %>
+  </div>
+
+  <div class="alpha seven columns">
+    <%= f.field_container :zip do %>
+      <%= f.label :zip, Spree.t(:zip) %><br />
+      <%= f.text_field :zip, :class => 'fullwidth' %>
+    <% end %>
+  </div>
+
+  <div class="alpha seven columns">
+    <%= f.field_container :rate do %>
+      <%= f.label :rate, Spree.t(:rate) %><br />
+      <%= f.text_field :local, :class => 'fullwidth' %>
+    <% end %>
+  </div>
+</div>
+

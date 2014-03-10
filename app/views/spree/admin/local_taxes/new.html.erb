@@ -1,0 +1,21 @@
+<%= render 'spree/admin/shared/configuration_menu' %>
+
+<% content_for :page_title do %>
+  <%= Spree.t(:local_tax) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li>
+    <%= button_link_to Spree.t(:back_to_local_tax), spree.admin_local_taxes_path, :icon => 'icon-arrow-left' %>
+  </li>
+<% end %>
+
+<%= form_for [:admin, @local_tax] do |f| %>
+  <%= render :partial => "form", :locals => { f: f } %>
+  <fieldset class="no-border-top">
+    <br>
+    <div class="filter-actions actions" data-hook="buttons">
+      <%= button Spree.t(:create), 'icon-ok' %>
+    </div>
+  </fieldset>
+<% end %>

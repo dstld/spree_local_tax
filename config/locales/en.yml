@@ -1,2 +1,5 @@
 en:
-  local_tax: Local Tax
+  spree:
+    local_tax: Local Tax
+    new_local_tax: New Local Tax
+    back_to_local_tax: Back to Local tax

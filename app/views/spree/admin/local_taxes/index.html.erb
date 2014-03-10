@@ -1,0 +1,49 @@
+<%= render 'spree/admin/shared/configuration_menu' %>
+
+<% content_for :page_title do %>
+  <%= Spree.t(:local_tax) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li>
+    <%= button_link_to Spree.t(:new_local_tax), spree.new_admin_local_tax_path, :icon => 'icon-plus', :id => 'admin_new_local_tax_link' %>
+  </li>
+<% end %>
+
+<% if @local_taxes.any? %>
+  <div id="list-local_taxes" data-hook>
+    <table class="index sortable" id='local_tax_list' data-hook>
+      <colgroup>
+        <col style="width: 25%">
+        <col style="width: 50%">
+        <col style="width: 25%">
+      </colgroup>
+      <thead>
+        <tr data-hook="local_tax_header">
+          <th><%= Spree.t(:state) %></th>
+          <th><%= Spree.t(:zip) %></th>
+          <th><%= Spree.t(:rate) %></th>
+          <th class="actions"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @local_taxes.each do |l| %>
+          <tr class="<%= cycle('odd', 'even')%>">
+            <td class="align-center"><%= l.state %></td>
+            <td class="align-center"><%= l.zip %></td>
+            <td class="align-center"><%= l.rate*100 %>%</td>
+            <td class="actions">
+              <%= link_to_edit l.id, :no_text => true %>
+              <%= link_to_delete l, :no_text => true %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <div class="alpha twelve columns no-objects-found">
+    <%= Spree.t(:no_resource_found, resource: Spree.t(:local_tax)) %>,
+    <%= link_to Spree.t(:add_one), spree.new_admin_local_tax_path %>!
+  </div>
+<% end %>
