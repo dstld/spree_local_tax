@@ -1,7 +1,7 @@
-require_dependency 'spree/admin/reports_controller'
+#require_dependency 'spree/admin/reports_controller'
 
 # UPGRADE_CHECK https://github.com/spree/spree/issues/1863
-
+=begin
 Spree::Admin::ReportsController.class_eval do
   (AVAILABLE_REPORTS ||= {}).merge!(
     (ADVANCED_REPORTS ||= {}).merge!({
@@ -29,3 +29,4 @@ Spree::Admin::ReportsController.class_eval do
     base_report_top_render("orders_local_tax")
   end
 end
+=end
