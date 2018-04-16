@@ -10,7 +10,8 @@ group :test do
 end
 
 # specific to my dev setup
-gem 'ruport', :git => 'https://github.com/iloveitaly/ruport.git', :branch => 'wicked-pdf'
-gem 'spree_advanced_reporting', :git => 'https://github.com/iloveitaly/spree_advanced_reporting.git'
+# gem 'ruport', :git => 'https://github.com/iloveitaly/ruport.git', :branch => 'wicked-pdf'
+# gem 'spree_advanced_reporting', :git => 'https://github.com/iloveitaly/spree_advanced_reporting.git'
 
-gem 'spree', '~> 1.2'
+# gem 'spree', '~> 2.4'
+gem 'solidus', '= 1.0.0'
