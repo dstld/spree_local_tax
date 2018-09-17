@@ -2,6 +2,8 @@ require_dependency 'spree/calculator'
 
 module Spree
   class Calculator::LocalTax < Calculator::DefaultTax
+    preference :amount, :decimal, default: 0
+
     def self.description
       I18n.t(:local_tax)
     end
